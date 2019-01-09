@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.whu.mathmodel.dao.TaskOneDao">
+    <resultMap id="dataMap" type="cn.edu.whu.mathmodel.pojo.TaskOne">
+        <id column="eventid" property="eventID"/>
+        <result column="weaptype1" property="weaponType"/>
+        <result column="targtype1" property="targType"/>
+        <result column="nkill" property="nKill"/>
+        <result column="nwound" property="nWound"/>
+        <result column="propextent" property="propExtent"/>
+    </resultMap>
+    <select id="getData" resultMap="dataMap">
+        select eventid,weaptype1,targtype1,nkill,nwound,propextent
+        from data
+    </select>
+</mapper>

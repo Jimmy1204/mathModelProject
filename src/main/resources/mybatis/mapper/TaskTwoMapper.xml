@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.whu.mathmodel.dao.TaskTwoDao">
+    <resultMap id="dataMap" type="cn.edu.whu.mathmodel.pojo.TaskTwo">
+        <id column="eventid" property="eventID"/>
+        <result column="weaptype1" property="weaponType"/>
+        <result column="targtype1" property="targType"/>
+        <result column="crit1" property="crit1"/>
+        <result column="crit2" property="crit2"/>
+        <result column="crit3" property="crit3"/>
+        <result column="latitude" property="latitude"/>
+        <result column="longitude" property="longitude"/>
+        <result column="attacktype1" property="attackType"/>
+    </resultMap>
+    <select id="getData" resultMap="dataMap">
+        select eventid,weaptype1,targtype1,crit1,crit2,crit3,latitude,longitude,attacktype1
+        from data
+        where latitude is not null and longitude is not null
+    </select>
+</mapper>
