@@ -1,0 +1,32 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    name: data
+    url: jdbc:mysql://localhost:3306/data?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
+    username: root
+    password: lianglab
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #druid配置
+    druid:
+      filters: stat
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+
+#Mybatis配置
+mybatis:
+  mapper-locations: classpath:mybatis\mapper\*.xml
+  type-aliases-package: cn.edu.whu.mathmodel.pojo
+
+#分页插件配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
