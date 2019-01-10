@@ -14,6 +14,16 @@ public class TaskOne {
     private String nWound;
     private String propExtent;
 
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    private String level;
+
     public String getWeaponType() {
         return weaponType;
     }

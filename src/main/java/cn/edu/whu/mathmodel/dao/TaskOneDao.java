@@ -56,11 +56,18 @@ public interface TaskOneDao {
      * @param level 级别
      * @return 影响条数
      */
-    int addLevel(@Param("eventID") String eventID, @Param("level")int level);
+    void addLevel(@Param("eventID") String eventID, @Param("level")int level);
 
     /**
      * 获取级别
      * @return 级别
      */
     List<Map<String,Object>> getLevel();
+
+    /**
+     * 根据ID获取级别
+     * @param eventID 事件ID
+     * @return 事件级别
+     */
+    int getLevelByID(@Param("eventID") String eventID);
 }

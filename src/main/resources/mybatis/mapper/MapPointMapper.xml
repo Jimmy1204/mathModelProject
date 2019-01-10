@@ -4,6 +4,7 @@
     <select id="getMapPoints" resultType="cn.edu.whu.mathmodel.pojo.MapPoint">
         select eventid,latitude,longitude
         from data
-        where latitude is not null and longitude is not null
+        where latitude is not null and longitude is not null and level = 5
     </select>
+
 </mapper>

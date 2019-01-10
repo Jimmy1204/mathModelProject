@@ -51,16 +51,21 @@ public interface TaskOneService {
     List<Map<String,Object>> getPropExtent();
 
     /**
-     * 插入级别
-     * @param eventID 事件ID
-     * @param level 级别
+     * 插入级别数据
      * @return 影响条数
      */
-    int addLevel(String eventID, int level);
+    int addLevel();
 
     /**
      * 获取级别
      * @return 级别
      */
     List<Map<String,Object>> getLevel();
+
+    /**
+     * 根据ID获取级别
+     * @param eventID 事件ID
+     * @return 事件级别
+     */
+    int getLevelByID(@Param("eventID") String eventID);
 }

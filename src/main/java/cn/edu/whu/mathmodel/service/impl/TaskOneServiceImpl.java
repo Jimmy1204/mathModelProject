@@ -3,6 +3,7 @@ package cn.edu.whu.mathmodel.service.impl;
 import cn.edu.whu.mathmodel.dao.TaskOneDao;
 import cn.edu.whu.mathmodel.pojo.TaskOne;
 import cn.edu.whu.mathmodel.service.TaskOneService;
+import cn.edu.whu.mathmodel.utils.LevelUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,13 +52,24 @@ public class TaskOneServiceImpl implements TaskOneService {
     }
 
     @Override
-    public int addLevel(String eventID, int level) {
-        return taskOneDao.addLevel(eventID,level);
+    public int addLevel() {
+        List<TaskOne> list = taskOneDao.getData();
+        list.forEach(data -> {
+                    int level = LevelUtil.getLevel(data);
+                    taskOneDao.addLevel(data.getEventID(), level);
+                }
+        );
+        return 0;
     }
 
     @Override
     public List<Map<String, Object>> getLevel() {
         return taskOneDao.getLevel();
+    }
+
+    @Override
+    public int getLevelByID(String eventID) {
+        return taskOneDao.getLevelByID(eventID);
     }
 
 

@@ -54,4 +54,9 @@
         from data
         group by level
     </select>
+    <select id="getLevelByID" resultType="int">
+        select level
+        from data
+        where eventID = #{eventID}
+    </select>
 </mapper>

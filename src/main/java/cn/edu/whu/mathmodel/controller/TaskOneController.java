@@ -85,6 +85,17 @@ public class TaskOneController {
         return map;
     }
 
+    @RequestMapping("/getLevelByID")
+    public Map<String,Object> getLevelByID(String eventID){
+        Map<String,Object> map = new HashMap<>(2);
+        int level = taskOneService.getLevelByID(eventID);
+        map.put("level",level);
+        return map;
+    }
 
+    @RequestMapping("/addLevel")
+    public int addLevel(){
+        return taskOneService.addLevel();
+    }
 
 }
