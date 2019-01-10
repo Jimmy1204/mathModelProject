@@ -8,9 +8,50 @@
         <result column="nkill" property="nKill"/>
         <result column="nwound" property="nWound"/>
         <result column="propextent" property="propExtent"/>
+        <result column="level" property="level"/>
     </resultMap>
     <select id="getData" resultMap="dataMap">
-        select eventid,weaptype1,targtype1,nkill,nwound,propextent
+        select eventid,weaptype1,targtype1,nkill,nwound,propextent,level
         from data
+    </select>
+    <select id="getNKill" resultType="map">
+        select nkill,count(*)
+        from data
+        where nkill is not null
+        group by nkill
+    </select>
+    <select id="getWeaponType" resultType="map">
+        select weaptype1,count(*)
+        from data
+        where weaptype1 is not null
+        group by weaptype1
+    </select>
+    <select id="getTargType" resultType="map">
+        select targtype1,count(*)
+        from data
+        where targtype1 is not null
+        group by targtype1
+    </select>
+    <select id="getNWound" resultType="map">
+        select nwound,count(*)
+        from data
+        where nwound is not null
+        group by nwound
+    </select>
+    <select id="getPropExtent" resultType="map">
+        select propextent,count(*)
+        from data
+        where propextent is not null
+        group by propextent
+    </select>
+    <update id="addLevel">
+        update data
+        set level = #{level}
+        where eventid = #{eventID}
+    </update>
+    <select id="getLevel" resultType="map">
+        select count(*) as 'count',level
+        from data
+        group by level
     </select>
 </mapper>

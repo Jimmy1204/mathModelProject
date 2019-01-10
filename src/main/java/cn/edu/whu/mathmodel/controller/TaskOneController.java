@@ -31,4 +31,60 @@ public class TaskOneController {
         return map;
     }
 
+    @RequestMapping("/getWeaponType")
+    public Map<String,Object> getWeaponType(){
+        Map<String,Object> map = new HashMap<>(2);
+        List<Map<String,Object>> list = taskOneService.getWeaponType();
+        map.put("data",list);
+        map.put("count",list.size());
+        return map;
+    }
+
+    @RequestMapping("/getTargType")
+    public Map<String,Object> getTargType(){
+        Map<String,Object> map = new HashMap<>(2);
+        List<Map<String,Object>> list = taskOneService.getTargType();
+        map.put("data",list);
+        map.put("count",list.size());
+        return map;
+    }
+
+    @RequestMapping("/getNKill")
+    public Map<String,Object> getNKill(){
+        Map<String,Object> map = new HashMap<>(2);
+        List<Map<String,Object>> list = taskOneService.getNKill();
+        map.put("data",list);
+        map.put("count",list.size());
+        return map;
+    }
+
+    @RequestMapping("/getNWound")
+    public Map<String,Object> getNWound(){
+        Map<String,Object> map = new HashMap<>(2);
+        List<Map<String,Object>> list = taskOneService.getNWound();
+        map.put("data",list);
+        map.put("count",list.size());
+        return map;
+    }
+
+    @RequestMapping("/getPropExtent")
+    public Map<String,Object> getPropExtent(){
+        Map<String,Object> map = new HashMap<>(2);
+        List<Map<String,Object>> list = taskOneService.getPropExtent();
+        map.put("data",list);
+        map.put("count",list.size());
+        return map;
+    }
+
+    @RequestMapping("/getLevel")
+    public Map<String,Object> getLevel(){
+        Map<String,Object> map = new HashMap<>(2);
+        List<Map<String,Object>> list = taskOneService.getLevel();
+        map.put("data",list);
+        map.put("count",list.size());
+        return map;
+    }
+
+
+
 }

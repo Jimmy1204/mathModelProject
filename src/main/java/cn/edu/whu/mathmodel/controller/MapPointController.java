@@ -23,9 +23,9 @@ public class MapPointController {
     private MapPointService mapPointService;
 
     @RequestMapping("/getMapPoints")
-    public Map<String, Object> getMapPoints() {
+    public Map<String, Object> getMapPoints(int pageNum, int pageSize) {
         Map<String, Object> map = new HashMap<>(2);
-        List<MapPoint> list = mapPointService.getMapPoints();
+        List<MapPoint> list = mapPointService.getMapPoints(pageNum,pageSize).getList();
         map.put("points", list);
         map.put("count", list.size());
         return map;

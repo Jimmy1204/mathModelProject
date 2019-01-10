@@ -1,6 +1,7 @@
 package cn.edu.whu.mathmodel.service;
 
 import cn.edu.whu.mathmodel.pojo.MapPoint;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -13,7 +14,9 @@ import java.util.List;
 public interface MapPointService {
     /**
      * 获取地图点
+     * @param pageNum 页数
+     * @param pageSize 每页个数
      * @return 地图点列表
      */
-    List<MapPoint> getMapPoints();
+    PageInfo<MapPoint> getMapPoints(int pageNum, int pageSize);
 }
