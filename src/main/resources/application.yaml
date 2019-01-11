@@ -21,7 +21,7 @@ spring:
 
 #Mybatis配置
 mybatis:
-  mapper-locations: classpath:mybatis\mapper\*.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
   type-aliases-package: cn.edu.whu.mathmodel.pojo
 
 #分页插件配置
